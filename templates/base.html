@@ -1,0 +1,423 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang='zh-CN'>
+	<head>
+	    <!--设置字符集-->
+	    <meta charset='utf-8'>
+	    <!--让IE开启它的兼容模式-->
+	    <meta http-equiv='X-UA-Compatible' content='IE-edge'>
+	    <!--让手机的屏幕端口正常显示-->
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <!--上面3个标签必须放在最前面，任何其他内容都必须跟随其后-->
+	    <title>Bootstrap 101 Template</title>
+	    <!-- Bootstrap -->
+	    <link rel="stylesheet" href="{% static 'myweb/css/bootstrap.min.css' %}">
+	    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <script src="{% static 'myweb/js/jquery-1.10.2.min.js' %}"></script>
+	    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <script src="{% static 'myweb/js/bootstrap.min.js' %}"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				//菜单栏手机选项的鼠标移入事件
+			$('#menu #yi').mouseover(function(){
+				$('#y1').css('display','block')
+				$('#y3').css('display','block')
+				$('#y').css('display','block')
+			})
+
+			$('#menu #yi').mouseout(function(){
+				$('#y1').css('display','none')
+				$('#y3').css('display','none')
+				$('#y').css('display','none')
+			})
+
+
+			//商品展示中鼠标移入移出事件
+			$('.a').mouseover(function(){
+				$('.b').css('display','block');
+
+			})
+
+			$('.a').mouseout(function(){
+				$('.b').css('display','none');
+
+			})
+
+			$('.c').mouseover(function(){
+				$('.d').css('display','block');
+
+			})
+
+			$('.c').mouseout(function(){
+				$('.d').css('display','none');
+
+			})
+			$('.e').mouseover(function(){
+				$('.f').css('display','block');
+
+			})
+
+			$('.e').mouseout(function(){
+				$('.f').css('display','none');
+
+			})
+			$('.g').mouseover(function(){
+				$('.h').css('display','block');
+
+			})
+
+			$('.g').mouseout(function(){
+				$('.h').css('display','none');
+
+			})
+			$('.i').mouseover(function(){
+				$('.j').css('display','block');
+
+			})
+
+			$('.i').mouseout(function(){
+				$('.j').css('display','none');
+
+			})
+			$('.k').mouseover(function(){
+				$('.l').css('display','block');
+
+			})
+
+			$('.k').mouseout(function(){
+				$('.l').css('display','none');
+
+			})
+			}
+		</script>
+		 <script type="text/javascript" src="./one.js"></script>
+
+	    <style type='text/css'>
+			body { padding-top: 93px; }
+			#hots,#nice{
+				height:47px;
+				border:1px solid #ccc;
+				padding-left:21px;
+				padding-top:6px;
+
+			}
+			.thumbnail{
+				padding-top:20px;
+				padding-bottom:20px;
+			}
+			#one{
+				margin-top:9px;
+				margin-left:250px;
+			}
+			#two{
+				margin-left:9px;
+				margin-top:9px;
+			}
+
+
+			a:hover{
+				text-decoration:none;
+				color:#000000;
+			}
+			#menu{
+
+				word-spacing:15px;
+
+
+			}
+
+			#yin{
+				padding:5px;
+				/*border:2px solid green;*/
+				float:left;
+				overflow:hidden;
+
+
+				width:1172px;
+
+			}
+			#yin>#y{
+				float:left;
+				display:none;
+			}
+			#yin>#y1,#y3{
+				/*border:2px solid pink;*/
+				height:162px;
+				float:left;
+				display:none;
+			}
+
+			.b,.d,.f,.h,.j,.l{
+				display:none;
+			}
+			#profile{
+				border-radius: 50%;
+			}
+
+
+		</style>
+
+
+ 	</head>
+ 	<body>
+ 		<!--导航条start-->
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		      <span class="sr-only">Toggle navigation</span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		    </button>
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		    	<div class="container">
+		    		<div class="row">
+		    			<div class='col-md-offset-1'>
+
+				    			<ul class="nav navbar-nav">
+				    				<li><img src="{% static 'myweb/img/2.png' %}" height='50px'/></li>
+						      		<li><a href="{% url 'list' %}">在线商城</a></li>
+						      		<li><a href="">坚果 3</a></li>
+						      		<li><a href="">坚果 Pro 2</a></li>
+						      		<li><a href="">Smartisan OS</a></li>
+						     		<li><a href="">欢喜云</a></li>
+						      		<li><a href="">应用下载</a></li>
+									<li><a href="">官方论坛</a></li>
+
+									{% if request.session.vipuser %}
+									<li   style="line-height: 62px;  margin-left: 150px;">
+										<a href="{% url 'vipusers' %}"><img src="{% static 'myweb/img/profile1.jpeg'%}" height="30px" id='profile'> {{ request.session.vipuser.name }}</a>
+									</li>
+
+					    			<li style="line-height: 62px;">
+						      			<a href="{% url 'shoppingCart' %}">
+											<button type="button" class="btn btn-default btn-sm">
+												<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+											</button>
+										</a>
+						      		</li>
+									<li  style="line-height: 62px;">
+										<a href="{% url 'logout' %}">退出登录</a>
+									</li>
+<!--									<li><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" id="one">-->
+<!--						      			<span class="glyphicon glyphicon-user" >退出登录</span>-->
+<!--									  	</button>-->
+<!--									</li>-->
+
+									{% else %}
+									<li>
+										<a href="{% url 'login' %}">
+											<button type="button" class="btn btn-default btn-sm" data-toggle="" data-target="" id="one">
+											<span class="glyphicon glyphicon-user" >登录</span>
+											</button>
+										</a>
+									</li>
+
+									{% endif %}
+					    		</ul>
+					    		</div>
+					</div>
+				</div>
+
+		  	</div><!-- /.navbar-collapse -->
+		 </div>
+		</nav>
+		<!--导航条end-->
+		<!-- Modal 动态摸框	-->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title" id="myModalLabel">使用Smartisan ID登录官网</h4>
+		      </div>
+		      <div class="modal-body">
+				<form class="form-horizontal" role="form" method="post">
+				  <div class="form-group">
+				    <label for="inputEmail3" class="col-sm-2 control-label"><span class="glyphicon glyphicon-user"></span></label>
+				    <div class="col-sm-10">
+				      <input type="email" class="form-control" id="inputEmail3" placeholder="手机号/邮箱">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputPassword3" class="col-sm-2 control-label"><span class="glyphicon glyphicon-asterisk"></span></label>
+				    <div class="col-sm-10">
+				      <input type="password" class="form-control" id="inputPassword3" placeholder="密码">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-10">
+				      <div class="checkbox">
+				        <label>
+				          <input type="checkbox"> 记住密码
+				        </label>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-10">
+				      <button type="submit" class="btn btn-default">登录</button>
+				    </div>
+				  </div>
+				</form>
+
+		      </div>
+
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		<!--容器start-->
+		<div class='container'>
+			<!--菜单栏start-->
+				<div class='row'>
+					<div class='col-md-12' id="menu">
+
+						<a href=''><font size='3'>首页</font></a>
+						<a href='' id="yi"><font size='3'>手机</font></a>
+						<a href=''><font size='3'>官方配件</font></a>
+						<a href=''><font size='3'>‘坚果’服装</font></a>
+						<a href=''><font size='3'>空气净化器</font></a>
+						<a href=''><font size='3'>品牌周边</font></a>
+						<a href=''><font size='3'>第三方产品</font></a>
+						<a href=''><font size='3'>全部</font></a>
+						<a href=''><font size='3'>服务</font></a>
+						<a href=''><font size='3'>企业团购</font></a>
+
+
+					</div>
+				</div>
+
+		<div>
+			<div class='row' id="yin">
+
+			  <div class="col-md-3" id="y1">
+			  </div>
+
+			  <div class="col-md-6" id="y">
+			  	<div class="col-sm-4 col-md-4">
+			      <center><img src="{% static 'myweb/img/5.png' %}" height="107px"/></center>
+			      <center><p>坚果 3</p></center>
+			      <center><font color="red">￥1,299.00起</font></center>
+			  	</div>
+
+			  	<div class="col-sm-4 col-md-4">
+
+			      <center><img src="{% static 'myweb/img/6.png' %}" height="107px"/></center>
+			      <center><p>坚果 Pro</p></center>
+			      <center><font color="red">￥1,799.00起</font></center>
+			   	</div>
+				<div class="col-sm-4 col-md-4">
+			      <center><img src="{% static 'myweb/img/6.png' %}" height="107px"/></center>
+			      <center><p>坚果</p></center>
+			      <center><font color="red">￥1,299.00起</font></center>
+			    </div>
+			   </div>
+
+			<div class="col-md-3" id="y3">
+			</div>
+
+		</div>
+	</div>
+
+			<!--菜单栏end-->
+			<br/>
+
+			{% block mainbody %}
+			{% endblock %}
+
+			<!--底部start-->
+		<footer class="footer ">
+	    	<div class="container">
+		    	<div class='row'>
+		            <div class="col-md-9">
+
+		            	<div class='col-xs-4 col-md-2'>
+		              		<h4>订单服务</h4>
+		              			<ul class="list-unstyled">
+		                			<li><a href="">购买指南</a></li>
+		                			<li><a href="">支付方式</a></li>
+		                			<li><a href="/links/">运货政策</a></li>
+		              			</ul>
+	            		</div>
+
+			            <div class="col-xs-4 col-md-2">
+			            	<h4>服务支持</h4>
+			              	<ul class="list-unstyled">
+			                	<li><a href="">售后服务</a></li>
+			                	<li><a href="">维修门店</a></li>
+			                	<li><a href="">零售门店</a></li>
+			              	</ul>
+			            </div>
+
+
+			            <div class="col-xs-4 col-md-2">
+			            	<h4>自助服务</h4>
+			              	<ul class="list-unstyled">
+			                	<li><a href="">热点资讯</a></li>
+			                	<li><a href="">预约购买</a></li>
+			                	<li><a href="">订单物流</a></li>
+			              	</ul>
+			            </div>
+
+
+			            <div class="col-xs-4 col-md-2">
+			            	<h4>媒体中心</h4>
+			            	<ul class="list-unstyled">
+				                <li><a href="">新闻动态</a></li>
+				                <li><a href="">官方视频</a></li>
+				                <li><a href="">图片资源</a></li>
+			              	</ul>
+			            </div>
+
+
+			            <div class="col-xs-4 col-md-2">
+			            	<h4>关于公司</h4>
+			            	<ul class="list-unstyled">
+				                <li><a href="">公司简介</a></li>
+				                <li><a href="">加入我们</a></li>
+				                <li><a href="">联系我们</a></li>
+			              	</ul>
+			            </div>
+
+
+						<div class="col-xs-4 col-md-2">
+			            	<h4>关注我们</h4>
+			              	<ul class="list-unstyled">
+				                <li><a href="">新浪微博</a></li>
+				                <li><a href="">官方微信</a></li>
+				                <li><a href="">官方贴吧</a></li>
+			              	</ul>
+			            </div>
+	        	</div>
+
+				<div class='col-xs-12 col-md-3'>
+
+						<p align="right"><strong><font size=5>4000-626-5666</font></strong></p>
+						<p align="right">周一至周日 9:00-18:00（仅收市话费）</p>
+						<p align="right"><button><a href=''>在线帮助</a></button></p>
+
+				</div>
+	      	</div>
+	      	<hr/>
+
+	      	<div class="row footer-bottom">
+
+	        	<div><center>Copyright,Smartisan Digital Co, Ltd All Rights Reserved.北京锤子数码科技有限公司 |法律声明|隐私条款|开发者中心</center></div>
+	        	<div><center><a href=''>京ICP备11008151号&nbsp;&nbsp;&nbsp;&nbsp;京公网安备11010802014853</a></center></div>
+
+	      	</div>
+
+	  	</footer>
+		<!--底部end-->
+		<div class="container-fluid">
+			<div class="row">
+				<div></div>
+			</div>
+		</div>
+
+
+ 	</body>
+
+</html>

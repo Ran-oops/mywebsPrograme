@@ -1,0 +1,745 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang='zh-CN'>
+	<head>
+	    <!--设置字符集-->
+	    <meta charset='utf-8'>
+	    <!--让IE开启它的兼容模式-->
+	    <meta http-equiv='X-UA-Compatible' content='IE-edge'>
+	    <!--让手机的屏幕端口正常显示-->
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <!--上面3个标签必须放在最前面，任何其他内容都必须跟随其后-->
+	  
+	    <title>Bootstrap 101 Template</title>
+	    <!-- Bootstrap -->
+	    <link rel="stylesheet" href="{% static 'myweb/css/bootstrap.min.css' %}">
+	    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <script src="{% static 'myweb/js/jquery-1.10.2.min.js' %}"></script>
+	    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <script src="{% static 'myweb/js/bootstrap.min.js' %}"></script>
+	    <style type='text/css'>
+			body { padding-top: 70px; }
+	
+			#one{
+				margin-top:9px;
+				margin-left:250px;
+			}
+			#two{
+				margin-left:9px;
+				margin-top:9px;
+			}
+						
+			a:hover{
+				text-decoration:none;
+				color:#000000;
+			}
+			#menu{
+				
+				word-spacing:15px;
+								
+			}
+
+			#p1,#p2,#p3,#p4,#p5,#p6,#p7,#p8,#p9,#p10,#p11,#p12,#p13,#p14,#p15,#p16,#p17,#p18,#p19,#p20{
+				display:block;
+				color:#D7000F;
+				font-size:4;
+			}
+			#b1,#b2,#b3,#b4,#b5,#b6,#b7,#b8,#b9,#b10,#b11,#b12,#b13,#b14,#b15,#b16,#b17,#b18,#b19,#b20{
+				display:none;
+			}
+
+			#g1,#g2,#g3,#g4,#g5,#g6,#g7,#g8,#g9,#g10,#g11,#g12,#g13,#g14,#g15,#g16,#g17,#g18,#g19,#g20{
+				
+				height:324px;
+			}
+			
+			
+			
+			
+		</style>	   
+ 	</head>
+ 	<body>
+ 		<!--导航条start-->
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		      <span class="sr-only">Toggle navigation</span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		    </button>
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		    	<div class="container">
+		    		<div class="row">
+		    			<div class='col-md-offset-1'>
+
+				    			<ul class="nav navbar-nav">
+				    				<li><img src={% static 'myweb/img/list/list(1).png' %} height='50px'/></li>
+						      		<li><a href="#">在线商城</a></li>
+						      		<li><a href="">坚果 3</a></li>
+						      		<li><a href="">坚果 Pro 2</a></li>
+						      		<li><a href="">Smartisan OS</a></li>
+						     		<li><a href="">欢喜云</a></li>
+						      		<li><a href="">应用下载</a></li>
+						      		<li><a href="">官方论坛</a></li>
+						      		<li><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" id="one">
+						      			<span class="glyphicon glyphicon-user" >登录</span>
+						      		</button></li>
+					    			
+					    			<li><button type="button" class="btn btn-default btn-sm"  id="two">
+						      			<span class="glyphicon glyphicon-shopping-cart" ></span>
+						      		</button></li>
+					    		</ul>
+					    		</div>
+					</div>
+				</div>
+   
+		  	</div><!-- /.navbar-collapse -->
+		 </div>
+		</nav>
+		<!--导航条end-->
+
+		
+		<!--容器start-->
+		<div class='container'>
+			<!--菜单栏start-->
+				<div class='row'>
+					<div class='col-md-12' id="menu">						
+						<font size='3'>首页</font>
+						<font size='3'>手机</font>
+						<font size='3'>官方配件</font>
+						<font size='3'>“坚果”服装</font>
+						<font size='3'>空气净化器</font>
+						<font size='3'>品牌周边</font>
+						<font size='3'>第三方产品</font>
+						<font size='3'>全部</font>
+						<font size='3'>服务</font>
+						<font size='3'>企业团购</font>						
+					</div>
+				</div><!--row end-->
+				<hr/>
+				<div class='row'>
+					<div class='col-md-12' id="menu">						
+						<font size='2'>综合排序</font>
+						<font size='2'>销量排序</font>
+						<font size='2'>价格从低到高</font>
+						<font size='2'>价格从高到低</font>						
+					</div>
+				</div><!--row end-->
+				<hr/>
+
+				<div class='row'>					
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g1'>
+					  	      <img src="./1.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
+					  	        <center><p>PTC过温保护、凹形设计</p></center>
+					  	        <div id='p1'><center><strong>￥ 39.00</strong></center></div>
+					  	        <div id='b1'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g2'>
+					  	      <img src="./2.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>Smartisan 二合一数据线 0.2m / 1.5m</h5></center>
+					  	        <center><p>夜间微光灯</p></center>
+					  	        <div id='p2'><center><strong>￥ 39.00</strong></center></div>
+					  	        <div id='b2'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g3'>
+					  	      <img src="./3.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>Smartisan S-1001 圈铁线控耳机</h5></center>
+					  	        <center><p>专业级调音</p></center>
+					  	        <div id='p3'><center><strong>￥ 119.00</strong></center></div>
+					  	        <div id='b3'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g4'>
+					  	      <img src="./4.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>FIIL CARAT 蓝牙运动耳机</h5></center>
+					  	        <center><p>智能记步</p></center>
+					  	        <div id='p4'><center><strong>￥ 499.00</strong></center></div>
+					  	        <div id='b4'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g5'>
+					  	      <img src="./5.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>《深泽直人》</h5></center>
+					  	        <center><p>首次面向中国读者介绍其作品</p></center>
+					  	        <div id='p5'><center><strong>￥ 199.00</strong></center></div>
+					  	        <div id='b5'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g6'>
+					  	      <img src="./6.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
+					  	        <center><p>PTC过温保护、凹形设计</p></center>
+					  	        <div id='p6'><center><strong>￥ 39.00</strong></center></div>
+					  	        <div id='b6'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g7'>
+					  	      <img src="./7.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
+					  	        <center><p>PTC过温保护、凹形设计</p></center>
+					  	        <div id='p7'><center><strong>￥ 39.00</strong></center></div>
+					  	        <div id='b7'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g8'>
+					  	      <img src="./8.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
+					  	        <center><p>PTC过温保护、凹形设计</p></center>
+					  	        <div id='p8'><center><strong>￥ 39.00</strong></center></div>
+					  	        <div id='b8'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+				</div><!--row end -->
+				
+				<div class='row'>					
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g9'>
+					  	      <img src="./9.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
+					  	        <center><p>PTC过温保护、凹形设计</p></center>
+					  	        <div id='p9'><center><strong>￥ 39.00</strong></center></div>
+					  	        <div id='b9'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g10'>
+					  	      <img src="./10.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
+					  	        <center><p>PTC过温保护、凹形设计</p></center>
+					  	        <div id='p10'><center><strong>￥ 39.00</strong></center></div>
+					  	        <div id='b10'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g11'>
+					  	      <img src="./11.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
+					  	        <center><p>PTC过温保护、凹形设计</p></center>
+					  	        <div id='p11'><center><strong>￥ 39.00</strong></center></div>
+					  	        <div id='b11'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g12'>
+					  	      <img src="./12.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
+					  	        <center><p>PTC过温保护、凹形设计</p></center>
+					  	        <div id='p12'><center><strong>￥ 39.00</strong></center></div>
+					  	        <div id='b12'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g13'>
+					  	      <img src="./13.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
+					  	        <center><p>PTC过温保护、凹形设计</p></center>
+					  	        <div id='p13'><center><strong>￥ 39.00</strong></center></div>
+					  	        <div id='b13'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g14'>
+					  	      <img src="./14.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
+					  	        <center><p>PTC过温保护、凹形设计</p></center>
+					  	        <div id='p14'><center><strong>￥ 39.00</strong></center></div>
+					  	        <div id='b14'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g15'>
+					  	      <img src="./15.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
+					  	        <center><p>PTC过温保护、凹形设计</p></center>
+					  	        <div id='p15'><center><strong>￥ 39.00</strong></center></div>
+					  	        <div id='b15'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g16'>
+					  	      <img src="./16.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
+					  	        <center><p>PTC过温保护、凹形设计</p></center>
+					  	        <div id='p16'><center><strong>￥ 39.00</strong></center></div>
+					  	        <div id='b16'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+				</div><!--row end -->
+
+				<div class='row'>					
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g17'>
+					  	      <img src="./17.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
+					  	        <center><p>PTC过温保护、凹形设计</p></center>
+					  	        <div id='p17'><center><strong>￥ 39.00</strong></center></div>
+					  	        <div id='b17'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g18'>
+					  	      <img src="./18.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
+					  	        <center><p>PTC过温保护、凹形设计</p></center>
+					  	        <div id='p18'><center><strong>￥ 39.00</strong></center></div>
+					  	        <div id='b18'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g19'>
+					  	      <img src="./19.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
+					  	        <center><p>PTC过温保护、凹形设计</p></center>
+					  	        <div id='p19'><center><strong>￥ 39.00</strong></center></div>
+					  	        <div id='b19'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+
+					<div class="col-xs-6 col-md-3">					  	
+					  	    <div class="thumbnail" id='g20'>
+					  	      <img src="./20.png" alt="...">
+					  	      <div class="caption">
+					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
+					  	        <center><p>PTC过温保护、凹形设计</p></center>
+					  	        <div id='p20'><center><strong>￥ 39.00</strong></center></div>
+					  	        <div id='b20'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
+					  	      </div>
+					  	    </div>
+					</div>
+				</div><!--row end-->
+
+		</div><!--container end-->
+
+
+		
+		<hr/>
+		<!--底部start-->
+		<footer class="footer ">
+	    	<div class="container">
+		    	<div class='row'>      
+		            <div class="col-md-9">		            	
+		            	
+		            	<div class='col-xs-4 col-md-2'>
+		              		<h4>订单服务</h4>
+		              			<ul class="list-unstyled">
+		                			<li><a href="">购买指南</a></li>
+		                			<li><a href="">支付方式</a></li>
+		                			<li><a href="/links/">运货政策</a></li>
+		              			</ul>
+	            		</div>
+
+			            <div class="col-xs-4 col-md-2">
+			            	<h4>服务支持</h4>
+			              	<ul class="list-unstyled">
+			                	<li><a href="">售后服务</a></li>
+			                	<li><a href="">维修门店</a></li>
+			                	<li><a href="">零售门店</a></li>
+			              	</ul>
+			            </div>
+
+
+			            <div class="col-xs-4 col-md-2">
+			            	<h4>自助服务</h4>
+			              	<ul class="list-unstyled">
+			                	<li><a href="">热点资讯</a></li>
+			                	<li><a href="">预约购买</a></li>
+			                	<li><a href="">订单物流</a></li>
+			              	</ul>
+			            </div>
+
+
+			            <div class="col-xs-4 col-md-2">
+			            	<h4>媒体中心</h4>
+			            	<ul class="list-unstyled">
+				                <li><a href="">新闻动态</a></li>
+				                <li><a href="">官方视频</a></li>
+				                <li><a href="">图片资源</a></li>
+			              	</ul>
+			            </div>
+
+
+			            <div class="col-xs-4 col-md-2">
+			            	<h4>关于公司</h4>
+			            	<ul class="list-unstyled">
+				                <li><a href="">公司简介</a></li>
+				                <li><a href="">加入我们</a></li>
+				                <li><a href="">联系我们</a></li>
+			              	</ul>
+			            </div>
+
+
+						<div class="col-xs-4 col-md-2">
+			            	<h4>关注我们</h4>
+			              	<ul class="list-unstyled">
+				                <li><a href="">新浪微博</a></li>
+				                <li><a href="">官方微信</a></li>
+				                <li><a href="">官方贴吧</a></li>
+			              	</ul>
+			            </div>	  
+	        	</div>
+
+				<div class='col-xs-12 col-md-3'>
+					
+						<p align="right"><strong><font size=5>4000-626-5666</font></strong></p>
+						<p align="right">周一至周日 9:00-18:00（仅收市话费）</p>
+						<p align="right"><button><a href=''>在线帮助</a></button></p>
+					
+				</div>
+	      	</div>	      
+	      	<hr/>
+
+	      	<div class="row footer-bottom">
+	        
+	        	<div><center>Copyright,Smartisan Digital Co, Ltd All Rights Reserved.北京锤子数码科技有限公司 |法律声明|隐私条款|开发者中心</center></div>
+	        	<div><center><a href=''>京ICP备11008151号&nbsp;&nbsp;&nbsp;&nbsp;京公网安备11010802014853</a></center></div>
+	       
+	      	</div>
+	    
+	  	</footer>
+		<!--底部end-->
+		<div class="container-fluid">
+			<div class="row">
+				<div></div>
+			</div>
+		</div>
+
+		<script type='text/javascript' src='jquery-1.8.3.min.js'></script> 
+		<script type='text/javascript'>
+			//菜单栏手机选项的鼠标移入与移出事件
+			$('#g1').mouseover(function(){
+				$('#p1').css('display','none')
+				$('#b1').css('display','block')
+				$('#g1').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g1').mouseout(function(){
+				$('#p1').css('display','block')
+				$('#b1').css('display','none')
+				$('#g1').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+
+			$('#g2').mouseover(function(){
+				$('#p2').css('display','none')
+				$('#b2').css('display','block')
+				$('#g2').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g2').mouseout(function(){
+				$('#p2').css('display','block')
+				$('#b2').css('display','none')
+				$('#g2').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+			$('#g3').mouseover(function(){
+				$('#p3').css('display','none')
+				$('#b3').css('display','block')
+				$('#g3').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g3').mouseout(function(){
+				$('#p3').css('display','block')
+				$('#b3').css('display','none')
+				$('#g3').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+			$('#g4').mouseover(function(){
+				$('#p4').css('display','none')
+				$('#b4').css('display','block')
+				$('#g4').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g4').mouseout(function(){
+				$('#p4').css('display','block')
+				$('#b4').css('display','none')
+				$('#g4').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+			$('#g5').mouseover(function(){
+				$('#p5').css('display','none')
+				$('#b5').css('display','block')
+				$('#g5').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g5').mouseout(function(){
+				$('#p5').css('display','block')
+				$('#b5').css('display','none')
+				$('#g5').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+			
+
+			$('#g6').mouseover(function(){
+				$('#p6').css('display','none')
+				$('#b6').css('display','block')
+				$('#g6').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g6').mouseout(function(){
+				$('#p6').css('display','block')
+				$('#b6').css('display','none')
+				$('#g6').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+			$('#g7').mouseover(function(){
+				$('#p7').css('display','none')
+				$('#b7').css('display','block')
+				$('#g7').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g7').mouseout(function(){
+				$('#p7').css('display','block')
+				$('#b7').css('display','none')
+				$('#g7').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+			$('#g8').mouseover(function(){
+				$('#p8').css('display','none')
+				$('#b8').css('display','block')
+				$('#g8').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g8').mouseout(function(){
+				$('#p8').css('display','block')
+				$('#b8').css('display','none')
+				$('#g8').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+			$('#g9').mouseover(function(){
+				$('#p9').css('display','none')
+				$('#b9').css('display','block')
+				$('#g9').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g9').mouseout(function(){
+				$('#p9').css('display','block')
+				$('#b9').css('display','none')
+				$('#g9').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+			$('#g10').mouseover(function(){
+				$('#p10').css('display','none')
+				$('#b10').css('display','block')
+				$('#g10').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g10').mouseout(function(){
+				$('#p10').css('display','block')
+				$('#b10').css('display','none')
+				$('#g10').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+			$('#g11').mouseover(function(){
+				$('#p11').css('display','none')
+				$('#b11').css('display','block')
+				$('#g11').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g11').mouseout(function(){
+				$('#p11').css('display','block')
+				$('#b11').css('display','none')
+				$('#g11').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+			$('#g12').mouseover(function(){
+				$('#p12').css('display','none')
+				$('#b12').css('display','block')
+				$('#g12').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g12').mouseout(function(){
+				$('#p12').css('display','block')
+				$('#b12').css('display','none')
+				$('#g12').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+			$('#g13').mouseover(function(){
+				$('#p13').css('display','none')
+				$('#b13').css('display','block')
+				$('#g13').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g13').mouseout(function(){
+				$('#p13').css('display','block')
+				$('#b13').css('display','none')
+				$('#g13').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+			$('#g14').mouseover(function(){
+				$('#p14').css('display','none')
+				$('#b14').css('display','block')
+				$('#g14').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g14').mouseout(function(){
+				$('#p14').css('display','block')
+				$('#b14').css('display','none')
+				$('#g14').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+			$('#g15').mouseover(function(){
+				$('#p15').css('display','none')
+				$('#b15').css('display','block')
+				$('#g15').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g15').mouseout(function(){
+				$('#p15').css('display','block')
+				$('#b15').css('display','none')
+				$('#g15').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+			$('#g16').mouseover(function(){
+				$('#p16').css('display','none')
+				$('#b16').css('display','block')
+				$('#g16').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g16').mouseout(function(){
+				$('#p16').css('display','block')
+				$('#b16').css('display','none')
+				$('#g16').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+			$('#g17').mouseover(function(){
+				$('#p17').css('display','none')
+				$('#b17').css('display','block')
+				$('#g17').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g17').mouseout(function(){
+				$('#p17').css('display','block')
+				$('#b17').css('display','none')
+				$('#g17').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+			$('#g18').mouseover(function(){
+				$('#p18').css('display','none')
+				$('#b18').css('display','block')
+				$('#g18').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g18').mouseout(function(){
+				$('#p18').css('display','block')
+				$('#b18').css('display','none')
+				$('#g18').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+			$('#g19').mouseover(function(){
+				$('#p19').css('display','none')
+				$('#b19').css('display','block')
+				$('#g19').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g19').mouseout(function(){
+				$('#p19').css('display','block')
+				$('#b19').css('display','none')
+				$('#g19').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+			$('#g20').mouseover(function(){
+				$('#p20').css('display','none')
+				$('#b20').css('display','block')
+				$('#g20').css('box-shadow','0px 0px 2px 1px 	#aaa inset')
+				
+			})
+			$('#g20').mouseout(function(){
+				$('#p20').css('display','block')
+				$('#b20').css('display','none')
+				$('#g20').css('box-shadow','0px 0px 0px 0px #FFFFFF inset')
+				
+			})
+
+			
+				
+		
+
+		</script>		
+ 	</body>
+</html>

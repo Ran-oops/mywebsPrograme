@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block mainbody %}
+
+
+			<!--轮播图start-->
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+			  <!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+				</ol>
+
+			  <!-- Wrapper for slides -->
+			<div class="carousel-inner">
+			    <div class="item active">
+			    	<img src="{% static 'myweb/img/01.png' %}" alt="...">
+			    </div>
+			    <div class="item">
+			      <img src="{% static 'myweb/img/02.png' %}" alt="...">
+			    </div>
+			</div>
+
+			<!-- Controls -->
+			<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</a>
+			<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+		</div>
+		<!--轮播图end-->
+		<br/>
+		<!--缩略图start-->
+		<div class='row goods-list'>
+			<div class="col-xs-6 col-md-3">
+			    <a href="#" class="thumbnail">
+			    	<img src="{% static 'myweb/img/1.jpg' %}" alt="...">
+			    </a>
+			</div>
+
+			<div class="col-xs-6 col-md-3">
+			  <a href="#" class="thumbnail">
+			    <img src="{% static 'myweb/img/2.jpg' %}" alt="...">
+			  </a>
+			</div>
+
+			<div class="col-xs-6 col-md-3">
+			  <a href="#" class="thumbnail">
+			    <img src="{% static 'myweb/img/3.jpg' %}" alt="...">
+			  </a>
+			</div>
+
+			<div class="col-xs-6 col-md-3">
+			  <a href="#" class="thumbnail">
+			    <img src="{% static 'myweb/img/4.jpg' %}" alt="...">
+			  </a>
+			</div>
+
+		</div>
+		<!--缩略图end-->
+
+		<br/>
+		<!--商品start-->
+		<div id='hots'><h4>热门商品</h4></div>
+			<div class='row'>
+					<div class="col-xs-6 col-md-3">
+					  	<a href="#" class="thumbnail">
+					    	<img src="{% static 'myweb/img/5.png' %}" alt="..."/>
+
+					    	<center><h4>坚果 3</h4></center>
+					    	<center>漂亮得不像实力派</center>
+					        <center class="a">￥1299.00</center>
+					      	<center class="b"><button type='button' class="btn btn-primary">查看详情</button> <button class="btn btn-default">加入购物车</button></center>
+					  	</a>
+					</div>
+
+					<div class="col-xs-6 col-md-3">
+					  	<a href="#" class="thumbnail">
+					    	<img src="{% static 'myweb/img/6.png' %}" alt="..."/>
+
+					    	<center><h4>坚果 pro</h4></center>
+					    	<center>漂亮得不像实力派</center>
+					        <center class="c">￥1799.00</center>
+					      	<center class="d"><button type='button' class="btn btn-primary">查看详情</button> <button class="btn btn-default">加入购物车</button></center>
+					  	</a>
+					</div>
+
+					<div class="col-xs-6 col-md-3">
+					  	<a href="#" class="thumbnail">
+					    	<img src="{% static 'myweb/img/7.png' %}" alt="..."/>
+
+					      	<center><h4>畅呼吸智能空气净化器-高配版</h4></center>
+					      	<center>超低噪音，智能操控</center>
+					      	<center class="e">￥3555.00<del><font color='#ccc'>￥4150.00</font></del></center>
+					      	<center class="f"><button type='button' class="btn btn-primary">查看详情</button> <button class="btn btn-default">加入购物车</button></center>
+				      	</a>
+					</div>
+
+					<div class="col-xs-6 col-md-3">
+					   <a href="#" class="thumbnail">
+					    	<img src="{% static 'myweb/img/8.png' %}" alt="...">
+
+					      	<center><h4>畅呼吸空气净化器-标准版</h4></center>
+					      	<center>超强净化能力</center>
+					      	<center class="g">￥2999.00<del><font color='#ccc'>￥3499.00</font></del></center>
+					      	<center class="h"><button type='button' class="btn btn-primary">查看详情</button> <button class="btn btn-default">加入购物车</button></center>
+					  </a>
+					</div>
+			</div>
+			<!--商品end-->
+			<br/>
+			<!--官方精选商品start-->
+			<div id='nice'><h4>官方精选商品</h4></div>
+				<div class='row'>
+					<div class="col-xs-12 col-md-6">
+						<a href='' class="thumbnail">
+					    	<img src="{% static 'myweb/img/9.png' %}" alt="...">
+					    </a>
+					</div>
+
+					<div class="col-xs-6 col-md-3">
+						<a href="#" class="thumbnail">
+					    	<img src="{% static 'myweb/img/10.png' %}" alt="...">
+				      		<center><h4>坚果 3 前屏钢化玻璃保护膜</h4></center>
+				      		<center>超强透光率</center>
+				      		<center class="i">￥49.00</center>
+				      		<center class="j"><button type='button' class="btn btn-primary">查看详情</button> <button class="btn btn-default">加入购物车</button></center>
+					  	</a>
+					</div>
+
+					<div class="col-xs-6 col-md-3">
+					  	<a href="#" class="thumbnail">
+					    	<img src="{% static 'myweb/img/11.png' %}" alt="...">
+
+					      	<center><h4>坚果 3 绒布国旗保护套</h4></center>
+						    <center>质感精良、完美贴合</center>
+						    <center class="k">￥79.00</center>
+						    <center class="l"><button type='button' class="btn btn-primary">查看详情</button> <button class="btn btn-default">加入购物车</button></center>
+					  	</a>
+					</div>
+				</div>
+				<!--精品第一行-->
+				<!--精品第二行-->
+				<div class='row'>
+
+					<div class="col-xs-6 col-md-3">
+					  	<a class="thumbnail">
+					    	<img src="{% static 'myweb/img/12.png' %}" alt="...">
+					      	<center><h4>坚果 3 TPU软胶透明保护套</h4></center>
+					      	<center>轻薄透明、完美贴合</center>
+					  	</a>
+					</div>
+
+					<div class="col-xs-6 col-md-3">
+					  	<a class="thumbnail">
+					    	<img src="{% static 'myweb/img/13.png' %}" alt="...">
+					      	<center><h4>Smartisan 半入耳式耳机</h4></center>
+					      	<center>经典配色、专业调音</center>
+					  	</a>
+					</div>
+
+					<div class="col-xs-6 col-md-3">
+					  	<a class="thumbnail">
+					    	<img src="{% static 'myweb/img/14.png' %}" alt="...">
+					      	<center><h4>坚果 3 TPU 软胶保护套</h4></center>
+					      	<center>TPU环保材质、完美贴合</center>
+					  	</a>
+					</div>
+
+					<div class="col-xs-6 col-md-3">
+					  	<a class="thumbnail">
+					    	<img src="{% static 'myweb/img/15.png' %}" alt="...">
+					      	<center><h4>坚果 3 “足迹” 背贴</h4></center>
+					      	<center>超强柔韧度、弧边设计</center>
+						</a>
+					</div>
+				</div>
+			<!--官方精选商品start-->
+		</div>
+		<!--容器end-->
+		<hr/>
+{% endblock %}

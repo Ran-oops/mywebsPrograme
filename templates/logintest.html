@@ -1,0 +1,118 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang='zh-CN'>
+	<head>
+	    <!--设置字符集-->
+	    <meta charset='utf-8'>
+	    <!--让IE开启它的兼容模式-->
+	    <meta http-equiv='X-UA-Compatible' content='IE-edge'>
+	    <!--让手机的屏幕端口正常显示-->
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <!--上面3个标签必须放在最前面，任何其他内容都必须跟随其后-->
+
+	    <title>Bootstrap 101 Template</title>
+	    <!-- Bootstrap -->
+	    <link rel="stylesheet" href="{% static 'myweb/css/bootstrap.min.css' %}">
+	    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <script src="{% static 'myweb/js/jquery-1.10.2.min.js' %}"></script>
+	    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <script src="{% static 'myweb/js/bootstrap.min.js' %}"></script>
+	    <style type='text/css'>
+
+
+	    	#one{
+	    		border:1px solid #ccc;
+	    		height:552px;
+	    		width:450px;
+	    		margin-top:82px;
+	    		margin-left:452px;
+	    		margin-bottom:82px;
+	    	}
+	    	#two{
+	    		height:552px;
+	    		width:450px;
+	    		background:#FFFFFF;
+	    		box-shadow:0px 0px 10px 5px #aaa;
+
+	    	}
+	    	a:hover{
+	    		text-decoration:none;
+	    	}
+
+
+		</style>
+ 	</head>
+ 	<body background="{% static 'myweb/img/h.jpeg' %}">
+
+ 		<div id="one">
+ 			<div class="container-fluid" id="two">
+ 				<div class="col-md-12 col-xs-3">
+ 					<center><img src='{% static 'myweb/img/20.png' %}'></center>
+ 					<center><h3>使用Smartisan ID登录官网</h3></center>
+ 					<br/>
+ 					<br/>
+ 					<form action='' method="post" id="m"  action="{% url 'dologin' %}">
+						{% csrf_token %}
+
+ 					</form>
+ 					<hr/>
+ 					<div class='col-md-7'>
+ 						<font size='1'>其他账号登录：</font>
+ 						<img src="{% static 'myweb/img/21.png' %}"/>
+ 						<img src="{% static 'myweb/img/22.png' %}">
+ 						<img src="{% static 'myweb/img/23.png' %}">
+ 					</div>
+ 					<div class='col-md-5'>
+ 					<p align='right'><font size='1'>国际手机号登录&nbsp;></font></p>
+ 					</div>
+
+ 				</div>
+ 			</div>
+ 		</div>
+
+ 		<!--底部start-->
+		<footer class="footer ">
+	      	<div class="row footer-bottom">
+
+	        	<div><center>Copyright,Smartisan Digital Co, Ltd All Rights Reserved.北京锤子数码科技有限公司 |法律声明|隐私条款|开发者中心</center></div>
+	        	<div><center><a href=''>京ICP备11008151号&nbsp;&nbsp;&nbsp;&nbsp;京公网安备11010802014853</a></center></div></div>
+
+	  	</footer>
+
+		  <script type='text/javascript'>
+		  	<!--定义一个全局变量-->
+		  	var userok=1;
+
+			<!--获取用户输入的手机号或邮箱号并用正则去判断是否符合-->
+			var m=document.getElementById('m')
+			var sub=document.getElementById('sub')
+			$(function(){
+				$('#str').focus(function(){
+
+				})
+				$('#str').blur(function(){
+					var v=str.value;
+					var reg=/(^\w+@\w+\.(com|cn|org|net|gov)$)|^1\d{10}$/;
+
+					if(reg.test(v)){
+						$('#str').parent('#my').attr('class','input-group input-group-lg form-group has-success')//给父类修改类 使其颜色变为绿色
+						userok=true;
+					}else{
+						$('#str').parent('#my').attr('class','input-group input-group-lg form-group has-error')//给父类修改类 使其颜色变为红色
+						userok=false;
+					}
+
+				})
+			})
+			//绑定表单提交事件
+			$('form').submit(function(){
+				if(userok){
+
+				}else{
+					return false;
+				}
+			})
+
+		</script>
+ 	</body>
+ </html>
