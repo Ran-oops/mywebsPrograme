@@ -1,0 +1,60 @@
+{% extends 'backend/base.html' %}
+{% block mainbody %}
+	<h4>
+		商品类别信息管理
+	</h4>
+	<table class='table table-bordered table-striped'>
+		<thead>
+			<tr>
+				<th>ID号</th>
+				<th>父类名</th>
+				<th>操作</th>
+
+			</tr>
+		</thead>
+		<tbody>
+
+
+
+			{% for vo in parentname_obj %}
+
+			<tr>
+				<td>{{ vo.id }}</td>
+				<td>{{ vo.name }}</td>
+
+
+				<td width="30%">
+					<a href="{% url 'mybackend_typeadd' vo.id %}" class="view-link">添加子类别</a>
+					<a href="{% url 'mybackend_typedelete' vo.id %}" class="view-link">删除</a>
+					<a href="{% url 'mybackend_typeedit' vo.id %}" class="view-link">编辑</a>
+				</td>
+			</tr>
+
+
+			{% endfor %}
+
+		</tbody>
+	</table>
+	<div class='pagination'>
+		<ul>
+			<li class='disabled'>
+				<a href="#">&laquo;</a>
+			</li>
+			<li>
+				<a href="#">1</a>
+			</li>
+			<li>
+				<a href="#">2</a>
+			</li>
+			<li>
+				<a href="#">3</a>
+			</li>
+			<li>
+				<a href="#">4</a>
+			</li>
+			<li>
+				<a href="#">&raquo;</a>
+			</li>
+		</ul>
+	</div>
+{% endblock %}

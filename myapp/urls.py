@@ -18,5 +18,6 @@ from django.conf.urls import include, url
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^myweb/', include("frontendshop.urls") )
+    url(r'^myfrontend/', include("frontendshop.urls") ),
+    url(r'^mybackend/', include("backendshop.urls") )
 ]

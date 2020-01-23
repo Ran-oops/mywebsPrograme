@@ -2,67 +2,59 @@ from django.db import models
 
 # Create your models here.
 
-class GUEST_INFO(models.Model):
-    guid=models.AutoField(primary_key=True)
+#frontend页面实现的功能：
+#1.验证guest登录网页
+#2.guest可以看到动态加载出来的商品首页，商品列表页（可以分类显示），商品详情页（要实现放大镜功能）
+#3.加入购物车，购物车要实现增减删查
+#4.guest通过自己的主页看到所有的订单
+
+#backend页面实现的功能：
+#1.商品类型增删改查   获取父类型
+#2.商品  增删改查
+#3.所有订单信息 查看
+
+
+class PGoodsType(models.Model):
+    name=models.CharField(max_length=32)
+
+class CGoodsType(models.Model):
+    name=models.CharField(max_length=32)
+    pgoodstype=models.ForeignKey('PGoodsType')
+
+class GoodsInfo(models.Model):
+    title=models.CharField(max_length=32)
+    price=models.DecimalField(max_digits=7, decimal_places=2)  #一共7位，保留两位小数
+    num =models.IntegerField()
+    storename=models.CharField(max_length=50)
+    description=models.TextField()
+    picname=models.CharField(max_length=255)
+    state=models.IntegerField()  #0表示预售 1表示在售   2表示下架
+    clicknum=models.IntegerField()
+    addtime=models.DateTimeField()
+    goodstype=models.ForeignKey('CGoodsType')
+
+class GuestInfo(models.Model):
     name=models.CharField(max_length=100)
     phonenumber = models.CharField(max_length=11)
     password=models.CharField(max_length=36)
     email=models.CharField(max_length=50)
     sex=models.IntegerField()
     address=models.CharField(max_length=255)
+    guestpic=models.CharField(max_length=50)
 
     def to_dict(self):
         return {'guid': self.guid, 'name': self.name, 'phonenumber': self.phonenumber, 'address': self.address}
 
 
-class GOODS_INFO(models.Model):
-    goid=models.IntegerField()
-    typeid=models.IntegerField()
-    goods_title=models.CharField(max_length=30)
-    goods_desc=models.TextField()
-    goods_picname=models.CharField(max_length=30)
-    goods_store_num=models.IntegerField()
-    click_num=models.IntegerField()
-    goods_price=models.FloatField()
-    state=models.IntegerField(default=1)
-    merchant=models.CharField(max_length=50)
-    addtime=models.DateField()
-
-
-
-class EVERY_ORDER(models.Model):
-    oid=models.AutoField(primary_key=True)
-    guestid=models.IntegerField()
-    goods_num=models.IntegerField()
-    goods_type=models.CharField(max_length=30)
-    goods_id=models.IntegerField()
-    goods_descr=models.TextField()
-    goos_title=models.CharField(max_length=30)
-    goods_to_peopleid=models.IntegerField()
-    goods_to_peoplename=models.CharField(max_length=20)
-    goods_to_peoplephone=models.CharField(max_length=11)
-    goods_to_peoplecode=models.CharField(max_length=7)
-    total_price=models.FloatField()
-    order_status=models.IntegerField()
-
-class ORDER_DETAIL(models.Model):
-    did=models.IntegerField(primary_key=True)
-    orderid=models.IntegerField()
-    goodsid=models.IntegerField()
-    goods_num=models.IntegerField()
-    samegoods_totalprice=models.FloatField()
-    allgoods_totalprice=models.FloatField()
-
-
-class GET_GOODS_ADDRESS(models.Model):
-    guestid=models.IntegerField()
-    orderid=models.IntegerField()
-    addresseeid=models.IntegerField()
-    province_id=models.IntegerField()
-    municipality_id=models.IntegerField()
-    county_id=models.IntegerField()
-    detaiaddress=models.CharField(max_length=50)
-
-
-
+#比如百褶裙  买几条
+class OneTypeGoodsOrder(models.Model):
+    guestinfo=models.ForeignKey('GuestInfo')
+    addtime=models.DateTimeField()
+    consigneename=models.CharField(max_length=32)
+    consigneetel=models.CharField(max_length=11)
+    consigneeaddress=models.CharField(max_length=50)
+    consigneecode=models.CharField(max_length=6)
+    goodsinfo=models.OneToOneField('GoodsInfo')
+    goodsnum=models.IntegerField()
+    orderstatus=models.IntegerField()  #0表示退货  1表示换货  2表示已完成
 

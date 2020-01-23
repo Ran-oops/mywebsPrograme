@@ -1,25 +1,23 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
 from django.shortcuts import redirect
 from django.core.urlresolvers import reverse
-
-from frontendshop.models import GUEST_INFO, GOODS_INFO, EVERY_ORDER, ORDER_DETAIL, GET_GOODS_ADDRESS
+from frontendshop.models import OneTypeGoodsOrder, GoodsInfo, CGoodsType, PGoodsType, GuestInfo
 # Create your views here.
 
 #homepage
 def index(request):
-    return render(request,'index.html')
+    return render(request,'frontend/index.html')
 
 def login(request):
-    return render(request, 'login.html')
+    return render(request, 'frontend/login.html')
 
 
 def dologin(request):
     userphone=request.POST['usernum']
     userpassword=request.POST['password']
     certificateCode=request.POST['cCode']
-    user=GUEST_INFO.objects.get(phonenumber=userphone)
+    user=GuestInfo.objects.get(phonenumber=userphone)
     print(userphone)
     print(userpassword)
     print('certificateCode from html:',certificateCode)
@@ -100,7 +98,7 @@ def logout(request):
 
 def list(request):
     goodsList = {}
-    goods_info = GOODS_INFO.objects.all()
+    goods_info = GoodsInfo.objects.all()
     # <class 'django.db.models.query.QuerySet'> 是queryset类型数据
     # print('this is goods_info:==============',goods_info,type(goods_info))
     for item in goods_info:
@@ -108,7 +106,7 @@ def list(request):
 
     goodsList['context']=goods_info
 
-    return render(request, 'list.html', goodsList)
+    return render(request, 'frontend/list.html', goodsList)
 	
 
 #user detail information index page
