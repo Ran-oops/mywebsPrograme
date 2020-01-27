@@ -8,6 +8,7 @@
 			<tr>
 				<th>ID号</th>
 				<th>父类名</th>
+				<th>子类名</th>
 				<th>操作</th>
 
 			</tr>
@@ -16,17 +17,28 @@
 
 
 
-			{% for vo in parentname_obj %}
+			{% for vo in parent %}
 
 			<tr>
 				<td>{{ vo.id }}</td>
 				<td>{{ vo.name }}</td>
+				<td>
+					{% for v in child %}
+						{% if v.pgoodstype_id == vo.id %}
+							{{ v.name }}
+						{% endif %}
+					{% endfor %}
+				</td>
 
 
 				<td width="30%">
-					<a href="{% url 'mybackend_typeadd' vo.id %}" class="view-link">添加子类别</a>
-					<a href="{% url 'mybackend_typedelete' vo.id %}" class="view-link">删除</a>
-					<a href="{% url 'mybackend_typeedit' vo.id %}" class="view-link">编辑</a>
+					<a href="{% url 'mybackend_ptypeadd' %}" class="view-link">添父类</a>
+					<a href="{% url 'mybackend_typedelete' vo.id %}" class="view-link">删父类</a>
+					<a href="{% url 'mybackend_ptypeedit' vo.id %}" class="view-link">编父类</a>
+
+					<a href="{% url 'mybackend_typeadd' vo.id %}" class="view-link">添子类</a>
+					<a href="{% url 'mybackend_typedelete' vo.id %}" class="view-link">删子类</a>
+					<a href="{% url 'mybackend_typeedit' vo.id %}" class="view-link">编子类</a>
 				</td>
 			</tr>
 

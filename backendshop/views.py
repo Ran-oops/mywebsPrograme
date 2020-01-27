@@ -15,17 +15,29 @@ def mybackend_typeindex(request):
     ChildDict = {}
 
     parentname_obj = PGoodsType.objects.all()
+    child_obj = CGoodsType.objects.all()
     for onechild in parentname_obj:
         getchild=onechild.cgoodstype_set.all()
         # ChildDict[onechild.name] = getchild
     # print('childname_obj', ChildDict)
 
-    NameDict['parentname_obj'] = parentname_obj
-    NameDict['ChildDict'] = ChildDict
+    # NameDict['parentname_obj'] = parentname_obj
+    # NameDict['ChildDict'] = ChildDict
 
-    return render(request,'backend/Type/index.html', NameDict)
+    return render(request,'backend/Type/index.html', {'parent':parentname_obj, 'child': child_obj})
 
+#增加父类别
+def mybackend_ptypeadd(request):
 
+    return render(request, 'backend/Type/padd.html')
+
+def mybackend_ptypeinsert(request):
+    pname=request.POST['pname']
+    print('======================pname:',pname)
+    PGoodsType.objects.create(name=pname)
+    return HttpResponse('hi, parentTypeinsert')
+
+#添加子类别
 def mybackend_typeadd(request,tid):
     # return HttpResponse('hi')
     tname=PGoodsType.objects.get(id=tid).name
@@ -33,19 +45,54 @@ def mybackend_typeadd(request,tid):
 
 def mybackend_typeinsert(request):
     hname=request.POST.get('cname')
-    hpgoodstype_id=request.POST.get('tid')
-    CGoodsType.objects.create(pgoodstype=hname,pgoodstype_id=hpgoodstype_id)
+    hid = request.POST.get('tid')
+    hid = int(hid)
+    print('*************hname:',hname, type(hname))
+    print('*************hpgoodstype_id:',hid, type(hid))
 
-    return redirect(reverse(request,'mybackend_typeindex'))
+    CGoodsType.objects.create(name=hname, pgoodstype_id=hid)
+    return redirect(reverse('mybackend_typeindex'))
 
-def mybackend_typedelete(request):
-    return render(request, 'backend/Type/index.html')
 
-def mybackend_typeedit(request):
-    return render(request, 'backend/Type/edit.html')
+    # return HttpResponse('hi,OK！')
+#父类别删除
+def mybackend_typedelete(request, tid):
+    PGoodsType.objects.filter(id=tid).delete()
+    return redirect(reverse('mybackend_typeindex'))
 
-def mybackend_typeupdate(request):
-    return render(request, 'backend/Type/index.html')
+#编辑父类别
+def mybackend_ptypeedit(request, tid):
+    ptype=PGoodsType.objects.filter(id=tid).first()
+    print('-------------ptype:', ptype)
+    # return HttpResponse('hi,ptypeedit')
+    return render(request, 'backend/Type/pedit.html', {'type':ptype})
+
+
+def mybackend_ptypeupdate(request, tid):
+    name=request.POST['pname']
+    print('from parents edit=======:',name)
+    PGoodsType.objects.filter(id=tid).update(name=name)
+    # return HttpResponse('hi,ptypeupdate')
+    return redirect(reverse('mybackend_typeindex'))
+
+
+#编辑子类别
+def mybackend_typeedit(request, tid):
+    child_obj=CGoodsType.objects.filter(pgoodstype_id=tid)
+
+    return render(request, 'backend/Type/edit.html', {'child_obj':child_obj, 'tid':tid})
+
+def mybackend_typeupdate(request, tid):
+    # c_obj=CGoodsType.objects.filter(pgoodstype_id=tid)
+    # 注意这边出过错是用了filter报Queryset has no attribute cgoodstype,换成get就好了或者是filter后first()  如下：
+    p_obj=PGoodsType.objects.filter(id=tid).first()
+    all=p_obj.cgoodstype_set.all()
+    for item in all:
+        print(item.name)
+    # na=request.POST['充电器']
+    # print('-----thisisname：',na)
+    # # return render(request, 'backend/Type/index.html')
+    return HttpResponse('Hi, mybackend_typeupdate!')
 
 
 
