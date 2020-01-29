@@ -7,7 +7,7 @@ from frontendshop.models import OneTypeGoodsOrder, GoodsInfo, CGoodsType, PGoods
 
 #homepage
 def index(request):
-    return render(request,'frontend/index.html')
+    return render(request,'frontend/index(1).html')
 
 def login(request):
     return render(request, 'frontend/login.html')

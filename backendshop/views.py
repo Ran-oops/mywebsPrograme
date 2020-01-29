@@ -1,3 +1,7 @@
+import datetime
+import time
+import os
+from PIL import Image
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
@@ -6,7 +10,7 @@ from frontendshop.models import OneTypeGoodsOrder, GoodsInfo, CGoodsType, PGoods
 # Create your views here.
 def backendindex(request):
     # return HttpResponse('Hi, backendpage!')
-    return render(request,'backend/index.html')
+    return render(request,'backend/index(1).html')
 
 
 #种类
@@ -35,7 +39,8 @@ def mybackend_ptypeinsert(request):
     pname=request.POST['pname']
     print('======================pname:',pname)
     PGoodsType.objects.create(name=pname)
-    return HttpResponse('hi, parentTypeinsert')
+    return redirect(reverse('mybackend_typeindex'))
+    # return HttpResponse('hi, parentTypeinsert')
 
 #添加子类别
 def mybackend_typeadd(request,tid):
@@ -76,7 +81,7 @@ def mybackend_ptypeupdate(request, tid):
     return redirect(reverse('mybackend_typeindex'))
 
 
-#编辑子类别
+#编辑子类别(包含删除操作)
 def mybackend_typeedit(request, tid):
     child_obj=CGoodsType.objects.filter(pgoodstype_id=tid)
 
@@ -89,21 +94,81 @@ def mybackend_typeupdate(request, tid):
     all=p_obj.cgoodstype_set.all()
     for item in all:
         print(item.name)
-    # na=request.POST['充电器']
-    # print('-----thisisname：',na)
-    # # return render(request, 'backend/Type/index.html')
-    return HttpResponse('Hi, mybackend_typeupdate!')
+        n=item.name
+        i=item.pgoodstype_id
+        na=request.POST[n]
+        print('-----thisisname：',na)
+        print('-----thisisid：',i, type(i))
+        if na == '':
+            CGoodsType.objects.filter(name=n).delete()
+            print('hi,no')
+        else:
+            CGoodsType.objects.filter(name=n).update(name=na, pgoodstype_id=i)
+
+            print('hi,yes')
+
+    # CGoodsType.objects.filter(name='手机壳').update(name='box', pgoodstype_id=2)
+    # CGoodsType.objects.filter(name='box').delete()
+
+    return redirect(reverse('mybackend_typeindex'))
+    # return HttpResponse('Hi, mybackend_typeupdate!')
 
 
 
 #商品信息===================================================================
 def mybackend_goodsindex(request):
-    return HttpResponse('Hi, mybackend_goodsindex!')
+    goods=GoodsInfo.objects.all()
+    return render(request, 'backend/goods/index(1).html', {'goods':goods})
+    # return HttpResponse('Hi, mybackend_goodsindex!')
 
 def mybackend_goodsadd(request):
-    return HttpResponse('Hi, mybackend_goodsadd!')
+    types=CGoodsType.objects.all()
+    return render(request, 'backend/goods/add.html',{'types':types})
+    # return HttpResponse('Hi, mybackend_goodsadd!')
 
 def mybackend_goodsinsert(request):
+    myfile=request.FILES.get('pic', None)
+    if not myfile:
+        return HttpResponse(' there is not any files')
+
+    #判断并执行图片的上传，缩放等处理
+    #split('.')是返回以.分割字段组成的列表
+    #pop（）是默认弹出列表中的最后一个
+    #以时间戳命名上传的这张照片
+    filename=str(time.time())+"."+myfile.name.split('.').pop()
+    destination=open(os.path.join("./static/goods", filename), "wb+")
+    for chunk in myfile.chunks:
+        destination.write(chunk)
+    destination.close()
+
+    #执行图片缩放
+    im=Image.open("./static/goods/"+filename)
+    #缩放到375*375
+    im.thumbnail((375,375))
+    #把缩放后的图像用jpeg格式保存
+    im.save('./static/goods/'+filename, 'jpeg')
+
+    #缩放到220*220
+    im.thumbnail((220,220))
+    im.save('./static/goods/m_'+filename, 'jpeg')
+
+    #缩放到100*100
+    im.thumbnail((100,100))
+    im.save('./static/goods/s_'+filename, 'jpeg')
+    picname=filename
+
+    title=request.POST['goods']
+    price=request.POST['price']
+    num=request.POST['store']
+    storename=request.POST['company']
+    description=request.POST['descr']
+    # picname=request.POST['goods']
+    state=request.POST['state']
+    addtime=datetime.datetime.now()
+    goodstype_id=request.POST['typeid']
+    CGoodsType.objects.create(title=title,price=price,num=num,storename=storename,description=description,picname=picname,state=state,addtime=addtime,goodstype_id=goodstype_id)
+
+    # print('filename===========:',filename, type(filename))
     return HttpResponse('Hi, mybackend_goodsinsert!')
 
 def mybackend_goodsdelete(request):

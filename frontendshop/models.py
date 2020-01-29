@@ -43,7 +43,7 @@ class GuestInfo(models.Model):
     guestpic=models.CharField(max_length=50)
 
     def to_dict(self):
-        return {'guid': self.guid, 'name': self.name, 'phonenumber': self.phonenumber, 'address': self.address}
+        return {'guid': self.id, 'name': self.name, 'phonenumber': self.phonenumber, 'address': self.address}
 
 
 #比如百褶裙  买几条

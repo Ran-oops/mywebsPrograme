@@ -1,10 +1,10 @@
-{% extends "myadmin/base.html" %}
+{% extends "backend/base.html" %}
 
 {% block mainbody %}
     <h3>
         商品信息管理
     </h3>
-    <form id="edit-profile" action="{% url 'myadmin_goodsinsert' %}" class="form-horizontal" method="post" enctype="multipart/form-data">
+    <form id="edit-profile" action="{% url 'mybackend_goodsinsert' %}" class="form-horizontal" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <fieldset>
             <legend>添加商品信息</legend>
@@ -12,9 +12,9 @@
                 <label class="control-label" for="input01">商品类别：</label>
                 <div class="controls">
                     <select name="typeid">
-                        {% for vo in typelist %}
+                        {% for vo in types %}
                             <option
-                                {% if vo.pid == 0 %}
+                                {% if vo.pgoodstype_id == 0 %}
                                     disabled
                                 {% endif %}
                                  value="{{ vo.id }}">{{ vo.name }}</option>
@@ -57,6 +57,25 @@
                 <div class="controls">
                     <textarea style="overflow:scroll; max-height:300px" cols="40" style="width:450px" id="editor" rows="10" name="descr">
                     </textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input01">商品状态：</label>
+                <div>
+                    <fieldset>
+                        <select name="state">
+                            <option value="0">
+                                新上线
+                            </option>
+                            <option value="1">
+                                在售
+                            </option>
+                            <option value="2">
+                                已下线
+                            </option>
+
+                        </select>
+                    </fieldset>
                 </div>
             </div>
             <div class="form-actions">

@@ -17,8 +17,8 @@ urlpatterns = [
 
 
 
-    url(r'^mybackend_goodsindex/(?P<tid>[0-9]+)$', views.mybackend_goodsindex, name="mybackend_goodsindex"),
-    url(r'^mybackend_goodsadd$', views.mybackend_goodsadd, name="mybackend_goodsindex"),
+    url(r'^mybackend_goodsindex$', views.mybackend_goodsindex, name="mybackend_goodsindex"),
+    url(r'^mybackend_goodsadd$', views.mybackend_goodsadd, name="mybackend_goodsadd"),
     url(r'^mybackend_goodsinsert$', views.mybackend_goodsinsert, name="mybackend_goodsinsert"),
     url(r'^mybackend_goodsdelete/(?P<tid>[0-9]+)$', views.mybackend_goodsdelete, name="mybackend_goodsdelete"),
 

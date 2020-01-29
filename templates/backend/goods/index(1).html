@@ -1,0 +1,85 @@
+{% extends "backend/base.html" %}
+{% load static from staticfiles %}
+{% block mainbody %}
+    <h4>
+        商品信息管理
+    </h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>id号</th>
+                <th>商品名称</th>
+                <th>单价</th>
+                <th>商店名</th>
+                <th>图片</th>
+                <th>状态</th>
+                <th>点击量</th>
+                <th>商品类别</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vo in goods %}
+            <tr>
+                <td>{{ vo.id }}</td>
+                <td>{{ vo.title }}</td>
+                <td>{{ vo.price }}</td>
+                <td>{{ vo.storename }}</td>
+
+<!--                <td><img src="static/mybackend/img/goods/{{ vo.picname }}" width="60"/></td>-->
+<!--                <td><img src="{{ t1 }}/chuizi(1).jpg" /></td>-->
+                <td><img src="{% static 'mybackend/img/goods/' %}/{{ vo.picname }}" width="60px"/></td>
+
+                <td>
+                     {% if vo.state == 0 %}
+                    |    新添加
+                    {% elif vo.state == 1 %}
+                    |     在售
+                    {% else %}
+                    |     下架
+                    {% endif %}
+
+
+                </td>
+                <td>{{ vo.clicknum }}</td>
+                <td>{{ vo.goodstype.name }}</td>
+                <td>
+
+                    <a href="javascript:doDel({{ vo.id }})" class="view-link">删除</a>
+                    <a href="" class="view-link">编辑</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+<div class="pagination">
+    <ul>
+        <li class="disabled">
+            <a href="#">&laquo;</a>
+        </li>
+        <li class="active">
+            <a href="#">1</a>
+        </li>
+        <li>
+            <a href="#">2</a>
+        </li>
+        <li>
+            <a href="#">3</a>
+        </li>
+        <li>
+            <a href="#">4</a>
+        </li>
+        <li>
+            <a href="#">&raquo;</a>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    function doDel(id){
+        if(confirm("确定要删除吗？")){
+            window.location="/mybackend/mybackend_goodsindex/"+id;
+        }
+    }
+</script>
+{% endblock %}

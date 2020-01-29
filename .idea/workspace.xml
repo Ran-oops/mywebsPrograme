@@ -2,13 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e414d35-69d8-4995-9fde-7a9fa15ae46c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/backend/Type/padd.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/backend/Type/pedit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/chuizi(1).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/chuizi(2).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/chuizi(3).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/cover11(1).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/cover11(2).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/cover11(3).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/cover16(1).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/cover16(2).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/cover16(3).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/cover7(1).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/cover7(2).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/cover7(3).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/iPhone(3).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/iPhone11(3).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/iphone(1).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/iphone(2).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/iphone(4).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/iphone11(1).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/iphone11(2).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/backend/goods/index(1).html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backendshop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backendshop/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backendshop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backendshop/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/backend/Type/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/backend/Type/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendshop/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontendshop/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendshop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontendshop/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/backend/Type/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/backend/Type/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/backend/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/backend/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/backend/goods/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/backend/goods/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/backend/goods/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/backend/goods/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +61,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/backend/Type" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/mybackend/img/goods" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -50,11 +72,11 @@
       <recent name="D:\myapp\static\myweb" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\myapp\static\mybackend\img\goods" />
       <recent name="D:\myapp\templates\backend\Type" />
       <recent name="D:\myapp\static" />
       <recent name="D:\myapp\templates\backend" />
       <recent name="D:\myapp\backendshop\migrations" />
-      <recent name="D:\myapp\templates" />
     </key>
   </component>
   <component name="ServiceViewManager">
