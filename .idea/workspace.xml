@@ -2,35 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e414d35-69d8-4995-9fde-7a9fa15ae46c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/chuizi(1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/chuizi(2).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/chuizi(3).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/cover11(1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/cover11(2).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/cover11(3).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/cover16(1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/cover16(2).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/cover16(3).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/cover7(1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/cover7(2).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/cover7(3).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/iPhone(3).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/iPhone11(3).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/iphone(1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/iphone(2).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/iphone(4).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/iphone11(1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/iphone11(2).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/backend/goods/index(1).html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/1580494461.2828174.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/m_1580494461.2828174.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/mybackend/img/goods/s_1580494461.2828174.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backendshop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backendshop/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backendshop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backendshop/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendshop/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontendshop/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontendshop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontendshop/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/backend/Type/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/backend/Type/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/backend/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/backend/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/backend/goods/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/backend/goods/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/backend/goods/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/backend/goods/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/mybackend/img/goods/iphone11(1).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/backend/goods/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/backend/goods/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/backend/goods/index(1).html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/backend/goods/index(1).html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontend/list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +90,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="331" y="149" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580493836200">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="331" y="149" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1580493836200" />
     <state x="412" y="61" key="FileChooserDialogImpl" timestamp="1578987344876">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -120,9 +106,20 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="368" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1579587026458" />
-    <state x="500" y="0" width="840" height="726" key="search.everywhere.popup" timestamp="1580146260317">
+    <state x="500" y="0" width="840" height="726" key="search.everywhere.popup" timestamp="1580480751965">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="500" y="0" width="840" height="726" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1580146260317" />
+    <state x="500" y="0" width="840" height="726" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1580480751965" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/backendshop/views.py</url>
+          <line>129</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

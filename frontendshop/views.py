@@ -7,7 +7,7 @@ from frontendshop.models import OneTypeGoodsOrder, GoodsInfo, CGoodsType, PGoods
 
 #homepage
 def index(request):
-    return render(request,'frontend/index(1).html')
+    return render(request,'frontend/index.html')
 
 def login(request):
     return render(request, 'frontend/login.html')
@@ -102,7 +102,7 @@ def list(request):
     # <class 'django.db.models.query.QuerySet'> 是queryset类型数据
     # print('this is goods_info:==============',goods_info,type(goods_info))
     for item in goods_info:
-        print(item.goods_picname)
+        print(item.picname)
 
     goodsList['context']=goods_info
 

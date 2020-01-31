@@ -75,7 +75,7 @@
 		    			<div class='col-md-offset-1'>
 
 				    			<ul class="nav navbar-nav">
-				    				<li><img src={% static 'myweb/img/list/list(1).png' %} height='50px'/></li>
+				    				<li><img src="{% static 'myweb/img/2.png' %}" height='50px'/></li>
 						      		<li><a href="#">在线商城</a></li>
 						      		<li><a href="">坚果 3</a></li>
 						      		<li><a href="">坚果 Pro 2</a></li>
@@ -83,13 +83,23 @@
 						     		<li><a href="">欢喜云</a></li>
 						      		<li><a href="">应用下载</a></li>
 						      		<li><a href="">官方论坛</a></li>
-						      		<li><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" id="one">
-						      			<span class="glyphicon glyphicon-user" >登录</span>
-						      		</button></li>
+									{% if request.session.vipuser %}
+
+										<li   style="line-height: 62px;  margin-left: 150px;">
+											<a href="{% url 'vipusers' %}"><img src="{% static 'myweb/img/profile1.jpeg'%}" height="30px" id='profile'> {{ request.session.vipuser.name }}</a>
+										</li>
+										<li><button type="button" class="btn btn-default btn-sm"  id="two">
+											<span class="glyphicon glyphicon-shopping-cart" ></span>
+										</button></li>
+									{% else %}
+										<li><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" id="one">
+											<span class="glyphicon glyphicon-user" >登录</span>
+										</button></li>
+
+									{% endif %}
+
 					    			
-					    			<li><button type="button" class="btn btn-default btn-sm"  id="two">
-						      			<span class="glyphicon glyphicon-shopping-cart" ></span>
-						      		</button></li>
+
 					    		</ul>
 					    		</div>
 					</div>
@@ -130,249 +140,20 @@
 				<hr/>
 
 				<div class='row'>					
-					<div class="col-xs-6 col-md-3">					  	
+					{% for vo in context %}
+					<div class="col-xs-6 col-md-3">
 					  	    <div class="thumbnail" id='g1'>
-					  	      <img src="./1.png" alt="...">
+					  	      <img src="{% static 'mybackend/img/goods' %}/{{ vo.picname }}" alt="..." width="180px">
 					  	      <div class="caption">
-					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
-					  	        <center><p>PTC过温保护、凹形设计</p></center>
-					  	        <div id='p1'><center><strong>￥ 39.00</strong></center></div>
+					  	        <center><h5>{{ vo.title }}</h5></center>
+					  	        <center><p>{{ vo.description }}</p></center>
+					  	        <div id='p1'><center><strong>￥ {{ vo.price }}</strong></center></div>
 					  	        <div id='b1'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
 					  	      </div>
 					  	    </div>
 					</div>
+					{% endfor %}
 
-					<div class="col-xs-6 col-md-3">					  	
-					  	    <div class="thumbnail" id='g2'>
-					  	      <img src="./2.png" alt="...">
-					  	      <div class="caption">
-					  	        <center><h5>Smartisan 二合一数据线 0.2m / 1.5m</h5></center>
-					  	        <center><p>夜间微光灯</p></center>
-					  	        <div id='p2'><center><strong>￥ 39.00</strong></center></div>
-					  	        <div id='b2'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
-					  	      </div>
-					  	    </div>
-					</div>
-
-					<div class="col-xs-6 col-md-3">					  	
-					  	    <div class="thumbnail" id='g3'>
-					  	      <img src="./3.png" alt="...">
-					  	      <div class="caption">
-					  	        <center><h5>Smartisan S-1001 圈铁线控耳机</h5></center>
-					  	        <center><p>专业级调音</p></center>
-					  	        <div id='p3'><center><strong>￥ 119.00</strong></center></div>
-					  	        <div id='b3'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
-					  	      </div>
-					  	    </div>
-					</div>
-
-					<div class="col-xs-6 col-md-3">					  	
-					  	    <div class="thumbnail" id='g4'>
-					  	      <img src="./4.png" alt="...">
-					  	      <div class="caption">
-					  	        <center><h5>FIIL CARAT 蓝牙运动耳机</h5></center>
-					  	        <center><p>智能记步</p></center>
-					  	        <div id='p4'><center><strong>￥ 499.00</strong></center></div>
-					  	        <div id='b4'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
-					  	      </div>
-					  	    </div>
-					</div>
-
-					<div class="col-xs-6 col-md-3">					  	
-					  	    <div class="thumbnail" id='g5'>
-					  	      <img src="./5.png" alt="...">
-					  	      <div class="caption">
-					  	        <center><h5>《深泽直人》</h5></center>
-					  	        <center><p>首次面向中国读者介绍其作品</p></center>
-					  	        <div id='p5'><center><strong>￥ 199.00</strong></center></div>
-					  	        <div id='b5'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
-					  	      </div>
-					  	    </div>
-					</div>
-
-					<div class="col-xs-6 col-md-3">					  	
-					  	    <div class="thumbnail" id='g6'>
-					  	      <img src="./6.png" alt="...">
-					  	      <div class="caption">
-					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
-					  	        <center><p>PTC过温保护、凹形设计</p></center>
-					  	        <div id='p6'><center><strong>￥ 39.00</strong></center></div>
-					  	        <div id='b6'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
-					  	      </div>
-					  	    </div>
-					</div>
-
-					<div class="col-xs-6 col-md-3">					  	
-					  	    <div class="thumbnail" id='g7'>
-					  	      <img src="./7.png" alt="...">
-					  	      <div class="caption">
-					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
-					  	        <center><p>PTC过温保护、凹形设计</p></center>
-					  	        <div id='p7'><center><strong>￥ 39.00</strong></center></div>
-					  	        <div id='b7'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
-					  	      </div>
-					  	    </div>
-					</div>
-
-					<div class="col-xs-6 col-md-3">					  	
-					  	    <div class="thumbnail" id='g8'>
-					  	      <img src="./8.png" alt="...">
-					  	      <div class="caption">
-					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
-					  	        <center><p>PTC过温保护、凹形设计</p></center>
-					  	        <div id='p8'><center><strong>￥ 39.00</strong></center></div>
-					  	        <div id='b8'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
-					  	      </div>
-					  	    </div>
-					</div>
-				</div><!--row end -->
-				
-				<div class='row'>					
-					<div class="col-xs-6 col-md-3">					  	
-					  	    <div class="thumbnail" id='g9'>
-					  	      <img src="./9.png" alt="...">
-					  	      <div class="caption">
-					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
-					  	        <center><p>PTC过温保护、凹形设计</p></center>
-					  	        <div id='p9'><center><strong>￥ 39.00</strong></center></div>
-					  	        <div id='b9'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
-					  	      </div>
-					  	    </div>
-					</div>
-
-					<div class="col-xs-6 col-md-3">					  	
-					  	    <div class="thumbnail" id='g10'>
-					  	      <img src="./10.png" alt="...">
-					  	      <div class="caption">
-					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
-					  	        <center><p>PTC过温保护、凹形设计</p></center>
-					  	        <div id='p10'><center><strong>￥ 39.00</strong></center></div>
-					  	        <div id='b10'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
-					  	      </div>
-					  	    </div>
-					</div>
-
-					<div class="col-xs-6 col-md-3">					  	
-					  	    <div class="thumbnail" id='g11'>
-					  	      <img src="./11.png" alt="...">
-					  	      <div class="caption">
-					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
-					  	        <center><p>PTC过温保护、凹形设计</p></center>
-					  	        <div id='p11'><center><strong>￥ 39.00</strong></center></div>
-					  	        <div id='b11'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
-					  	      </div>
-					  	    </div>
-					</div>
-
-					<div class="col-xs-6 col-md-3">					  	
-					  	    <div class="thumbnail" id='g12'>
-					  	      <img src="./12.png" alt="...">
-					  	      <div class="caption">
-					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
-					  	        <center><p>PTC过温保护、凹形设计</p></center>
-					  	        <div id='p12'><center><strong>￥ 39.00</strong></center></div>
-					  	        <div id='b12'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
-					  	      </div>
-					  	    </div>
-					</div>
-
-					<div class="col-xs-6 col-md-3">					  	
-					  	    <div class="thumbnail" id='g13'>
-					  	      <img src="./13.png" alt="...">
-					  	      <div class="caption">
-					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
-					  	        <center><p>PTC过温保护、凹形设计</p></center>
-					  	        <div id='p13'><center><strong>￥ 39.00</strong></center></div>
-					  	        <div id='b13'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
-					  	      </div>
-					  	    </div>
-					</div>
-
-					<div class="col-xs-6 col-md-3">					  	
-					  	    <div class="thumbnail" id='g14'>
-					  	      <img src="./14.png" alt="...">
-					  	      <div class="caption">
-					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
-					  	        <center><p>PTC过温保护、凹形设计</p></center>
-					  	        <div id='p14'><center><strong>￥ 39.00</strong></center></div>
-					  	        <div id='b14'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
-					  	      </div>
-					  	    </div>
-					</div>
-
-					<div class="col-xs-6 col-md-3">					  	
-					  	    <div class="thumbnail" id='g15'>
-					  	      <img src="./15.png" alt="...">
-					  	      <div class="caption">
-					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
-					  	        <center><p>PTC过温保护、凹形设计</p></center>
-					  	        <div id='p15'><center><strong>￥ 39.00</strong></center></div>
-					  	        <div id='b15'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
-					  	      </div>
-					  	    </div>
-					</div>
-
-					<div class="col-xs-6 col-md-3">					  	
-					  	    <div class="thumbnail" id='g16'>
-					  	      <img src="./16.png" alt="...">
-					  	      <div class="caption">
-					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
-					  	        <center><p>PTC过温保护、凹形设计</p></center>
-					  	        <div id='p16'><center><strong>￥ 39.00</strong></center></div>
-					  	        <div id='b16'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
-					  	      </div>
-					  	    </div>
-					</div>
-				</div><!--row end -->
-
-				<div class='row'>					
-					<div class="col-xs-6 col-md-3">					  	
-					  	    <div class="thumbnail" id='g17'>
-					  	      <img src="./17.png" alt="...">
-					  	      <div class="caption">
-					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
-					  	        <center><p>PTC过温保护、凹形设计</p></center>
-					  	        <div id='p17'><center><strong>￥ 39.00</strong></center></div>
-					  	        <div id='b17'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
-					  	      </div>
-					  	    </div>
-					</div>
-
-					<div class="col-xs-6 col-md-3">					  	
-					  	    <div class="thumbnail" id='g18'>
-					  	      <img src="./18.png" alt="...">
-					  	      <div class="caption">
-					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
-					  	        <center><p>PTC过温保护、凹形设计</p></center>
-					  	        <div id='p18'><center><strong>￥ 39.00</strong></center></div>
-					  	        <div id='b18'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
-					  	      </div>
-					  	    </div>
-					</div>
-
-					<div class="col-xs-6 col-md-3">					  	
-					  	    <div class="thumbnail" id='g19'>
-					  	      <img src="./19.png" alt="...">
-					  	      <div class="caption">
-					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
-					  	        <center><p>PTC过温保护、凹形设计</p></center>
-					  	        <div id='p19'><center><strong>￥ 39.00</strong></center></div>
-					  	        <div id='b19'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
-					  	      </div>
-					  	    </div>
-					</div>
-
-					<div class="col-xs-6 col-md-3">					  	
-					  	    <div class="thumbnail" id='g20'>
-					  	      <img src="./20.png" alt="...">
-					  	      <div class="caption">
-					  	        <center><h5>Smartisan 原装 Type-C 数据线</h5></center>
-					  	        <center><p>PTC过温保护、凹形设计</p></center>
-					  	        <div id='p20'><center><strong>￥ 39.00</strong></center></div>
-					  	        <div id='b20'><center><p><a href="#" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p></center></div>
-					  	      </div>
-					  	    </div>
-					</div>
 				</div><!--row end-->
 
 		</div><!--container end-->

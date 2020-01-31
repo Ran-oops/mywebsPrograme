@@ -2,6 +2,7 @@ import datetime
 import time
 import os
 from PIL import Image
+from django.conf import settings
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
@@ -127,59 +128,123 @@ def mybackend_goodsadd(request):
     # return HttpResponse('Hi, mybackend_goodsadd!')
 
 def mybackend_goodsinsert(request):
-    myfile=request.FILES.get('pic', None)
-    if not myfile:
+    print('settings', settings.STATIC_URL)
+    dest='static/mybackend/img/goods/'    #注意： goods后面一定要加/， 否则会有反斜杠\\会报错
+    print('dest=====:', dest)
+    misfile=request.FILES.get('pic', None)
+    if not misfile:
         return HttpResponse(' there is not any files')
 
     #判断并执行图片的上传，缩放等处理
     #split('.')是返回以.分割字段组成的列表
     #pop（）是默认弹出列表中的最后一个
     #以时间戳命名上传的这张照片
-    filename=str(time.time())+"."+myfile.name.split('.').pop()
-    destination=open(os.path.join("./static/goods", filename), "wb+")
-    for chunk in myfile.chunks:
+    filename = str(time.time())+"."+misfile.name.split('.').pop()
+    destination = open(os.path.join(dest, filename), "wb+")
+    for chunk in misfile.chunks():
         destination.write(chunk)
     destination.close()
 
+    # filename = str(time.time())+"."+misfile.name.split('.').pop()
+    # destination = open(os.path.join(settings.UPLOADFILES_DIRS, filename), "wb+")
+    # for chunk in misfile.chunks():
+    #     destination.write(chunk)
+    # destination.close()
+    #
     #执行图片缩放
-    im=Image.open("./static/goods/"+filename)
+    im=Image.open(dest + filename)
     #缩放到375*375
     im.thumbnail((375,375))
     #把缩放后的图像用jpeg格式保存
-    im.save('./static/goods/'+filename, 'jpeg')
+    im.save(dest + filename, 'jpeg')
 
     #缩放到220*220
     im.thumbnail((220,220))
-    im.save('./static/goods/m_'+filename, 'jpeg')
+    im.save(dest + 'm_' + filename, 'jpeg')
 
     #缩放到100*100
     im.thumbnail((100,100))
-    im.save('./static/goods/s_'+filename, 'jpeg')
-    picname=filename
+    im.save(dest + 's_' + filename, 'jpeg')
+    picnames=filename
 
-    title=request.POST['goods']
-    price=request.POST['price']
-    num=request.POST['store']
-    storename=request.POST['company']
-    description=request.POST['descr']
+    titles=request.POST['goods']
+    prices=request.POST['price']
+    nums=request.POST['store']
+    storenames=request.POST['company']
+    descriptions=request.POST['descr']
     # picname=request.POST['goods']
-    state=request.POST['state']
-    addtime=datetime.datetime.now()
-    goodstype_id=request.POST['typeid']
-    CGoodsType.objects.create(title=title,price=price,num=num,storename=storename,description=description,picname=picname,state=state,addtime=addtime,goodstype_id=goodstype_id)
+    states=request.POST['state']
+    addtimes=datetime.datetime.now()
+    goodstype_ids=request.POST['typeid']
+    clicknum = 0
+    GoodsInfo.objects.create(title=titles, price=prices,num=nums,storename=storenames,description=descriptions,picname=picnames,state=states,addtime=addtimes,goodstype_id=goodstype_ids, clicknum=clicknum)
 
     # print('filename===========:',filename, type(filename))
-    return HttpResponse('Hi, mybackend_goodsinsert!')
+    # return HttpResponse('Hi, mybackend_goodsinsert!')
+    return redirect(reverse('mybackend_goodsindex'))
 
-def mybackend_goodsdelete(request):
-    return HttpResponse('Hi, mybackend_goodsdelete!')
+def mybackend_goodsdelete(request, tid):
+    picname=GoodsInfo.objects.filter(id=tid).first().picname
+    dest = 'static/mybackend/img/goods/'
+    os.remove(dest + picname)
+    os.remove(dest + 'm_' + picname)
+    os.remove(dest + 's_' + picname)
+    GoodsInfo.objects.filter(id=tid).delete()
+    return redirect(reverse('mybackend_goodsindex'))
 
 
-def mybackend_goodsedit(request):
-    return HttpResponse('Hi, mybackend_goodsedit!')
+def mybackend_goodsedit(request, tid):
+    print('tid...................:', tid)
 
-def mybackend_goodsupdate(request):
-    return HttpResponse('Hi, mybackend_goodsupdate!')
+    goods = GoodsInfo.objects.filter(id=tid).first()
+    print('goods:', goods.clicknum)
+    types = CGoodsType.objects.all()
+    return render(request, 'backend/goods/edit.html', {'goods':goods,'types':types})
+    # return HttpResponse('Hi, mybackend_goodsedit!')
+
+def mybackend_goodsupdate(request, tid):
+    myfile=request.FILES.get('pic', None)
+    if myfile:
+        oldpicname = request.POST['oldpicname']
+        dest = 'static/mybackend/img/goods/'
+        os.remove(dest + oldpicname)
+        os.remove(dest + 'm_' + oldpicname)
+        os.remove(dest + 's_' + oldpicname)
+
+        filename=str(time.time())+"."+myfile.name.split('.').pop()
+        destination=open(os.path.join(dest,filename), 'wb+')
+
+        for chunk in myfile.chunks():
+            destination.write(chunk)
+        destination.close()
+
+        #执行缩放
+        im=Image.open(dest + filename)
+        im.thumbnail((375,375))
+        im.save(dest+filename,'jpeg')
+
+        im.thumbnail((220, 220))
+        im.save(dest + 'm_' + filename, 'jpeg')
+
+        im.thumbnail((100, 100))
+        im.save(dest + 's_' + filename, 'jpeg')
+        picnames=filename
+    else:
+        oldpicname=request.POST['oldpicname']
+        picnames =oldpicname
+    # clicknums=request.POST['clicknum']
+    titles=request.POST['goods']
+    prices=request.POST['price']
+    nums=request.POST['store']
+    storenames=request.POST['company']
+    descriptions=request.POST['descr']
+    states=request.POST['state']
+    addtimes=datetime.datetime.now()
+    goodstype_ids=request.POST['typeid']
+    GoodsInfo.objects.filter(id=tid).update(title=titles, price=prices,num=nums,storename=storenames,description=descriptions,picname=picnames,state=states,addtime=addtimes,goodstype_id=goodstype_ids)
+
+    return redirect(reverse('mybackend_goodsindex'))
+    # return HttpResponse('Hi, mybackend_goodsupdate!')
 
 
 #查看订单
